@@ -132,7 +132,7 @@ ExternalProject_Add(
     INSTALL_COMMAND
     ${install_cmd}
     --layout=tagged
-    -d0
+    -d 2
     install
     ${boost_list}
     "--prefix=@HUNTER_PACKAGE_INSTALL_PREFIX@"

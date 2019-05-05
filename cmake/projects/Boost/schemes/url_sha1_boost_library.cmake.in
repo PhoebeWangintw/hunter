@@ -226,10 +226,10 @@ if("@MINGW@")
   # cross compile from "linux" to "windows" using mingw
   set(build_opts target-os=windows ${build_opts})
 endif()
-if(DEFINED CMAKE_CXX_STANDARD)
-  hunter_status_debug("CXX STANDARD: ${CMAKE_CXX_STANDARD}")
-  list(APPEND build_opts cxxstd=${CMAKE_CXX_STANDARD})
-endif()
+# if(DEFINED CMAKE_CXX_STANDARD)
+#   hunter_status_debug("CXX STANDARD: ${CMAKE_CXX_STANDARD}")
+#   list(APPEND build_opts cxxstd=${CMAKE_CXX_STANDARD})
+# endif()
 set(BOOST_VERSION "@HUNTER_Boost_VERSION@")
 
 # Use:
@@ -479,7 +479,7 @@ ExternalProject_Add(
     1
     INSTALL_COMMAND
     ${b2_cmd}
-    -d0
+    -d 2
     ${build_opts}
     stage # install only libraries, headers installed in `url_sha1_boost`
     "--stagedir=@HUNTER_PACKAGE_INSTALL_PREFIX@"
